@@ -1,2 +1,1 @@
-# CS361_MainProgram
-Main program for CS361 course project.
+# CS361 Main Program
