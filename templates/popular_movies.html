@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Popular Movies</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Popular Movies</h1>
+        <div class="movie-list">
+            {% if movies %}
+                {% for movie in movies %}
+                    <div class="movie-card">
+                        <h3>{{ movie.title }} ({{ movie.year }})</h3>
+                        <p><strong>Rating:</strong> {{ movie.rating }}/10</p>
+                        <p>{{ movie.description }}</p>
+                        
+                        <!-- View Details Button -->
+                        <a href="{{ url_for('movie_details', movie_id=movie.id) }}" class="btn">View Details</a>
+
+                        <!-- Add to Favorites Form -->
+                        <form action="{{ url_for('save_to_favorites') }}" method="post" style="display: inline;">
+                            <input type="hidden" name="movie_title" value="{{ movie.title }}">
+                            <button type="submit" class="btn">Add to Favorites</button>
+                        </form>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No popular movies available at the moment.</p>
+            {% endif %}
+        </div>
+        <p><a href="{{ url_for('home') }}">Go back to Home</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Help & Support</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Help & Support</h1>
+        <ul>
+            <li><a href="{{ url_for('faq') }}" class="btn">FAQ</a></li>
+            <li><a href="{{ url_for('contact_us') }}" class="btn">Contact Us</a></li>
+        </ul>
+        <p><a href="/">Go back to Home</a></p>
+    </div>
+</body>
+</html>

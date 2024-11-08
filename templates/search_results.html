@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Search Results</h1>
+
+        <!-- Search and Filter Form -->
+        <form action="{{ url_for('search_results') }}" method="post">
+            <div class="search-bar">
+                <input type="text" name="query" placeholder="Search for movies..." required>
+                <button type="submit">Search</button>
+            </div>
+            
+            <!-- Filter Options -->
+            <div class="filters">
+                <label for="genre">Genre:</label>
+                <select name="genre" id="genre">
+                    <option value="">All</option>
+                    <option value="Action">Action</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Fantasy">Fantasy</option>
+                </select>
+
+                <label for="year">Year:</label>
+                <select name="year" id="year">
+                    <option value="">All</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                </select>
+
+                <label for="rating">Rating:</label>
+                <select name="rating" id="rating">
+                    <option value="">All</option>
+                    <option value="5">5+</option>
+                    <option value="6">6+</option>
+                    <option value="7">7+</option>
+                    <option value="8">8+</option>
+                </select>
+                
+                <button type="submit" class="btn">Apply Filters</button>
+            </div>
+        </form>
+
+        <!-- Display Search Results -->
+        {% for result in results %}
+        <div class="movie-card">
+            <h3>{{ result.title }} ({{ result.year }})</h3>
+            <a href="/movie_details/1022789" class="btn">View Details</a>
+            <form action="{{ url_for('save_to_favorites') }}" method="post">
+                <input type="hidden" name="movie_title" value="{{ result.title }}">
+                <button type="submit" class="btn">Add to Favorites</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

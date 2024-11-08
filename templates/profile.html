@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Profile / Settings</h1>
+        <div class="form-group">
+            <label>Username:</label>
+            <input type="text" value="{{ user.username }}" readonly>
+        </div>
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="text" value="{{ user.email }}" readonly>
+        </div>
+        <button class="btn">Edit</button>
+        <button class="btn">Change Password</button>
+        <a href="/" class="btn">Logout</a>
+    </div>
+</body>
+</html>
+

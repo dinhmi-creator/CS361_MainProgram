@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="homepage-container">
+        <h1>Welcome to Movie Search App</h1>
+        <nav>
+            <a href="{{ url_for('search_results') }}" class="btn">Search Movies</a>
+            <a href="{{ url_for('favorites') }}" class="btn">View Favorites</a>
+            <a href="{{ url_for('profile') }}" class="btn">Profile / Settings</a>
+            <a href="{{ url_for('help_support') }}" class="btn">Help & Support</a>
+            <a href="{{ url_for('logout') }}" class="btn logout-btn">Logout</a> <!-- Logout link -->
+        </nav>
+    </div>
+</body>
+</html>
+

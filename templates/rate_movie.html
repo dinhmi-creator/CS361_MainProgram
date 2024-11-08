@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Movie</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script>
+        function saveRating(event) {
+            event.preventDefault(); // Prevents the form from submitting
+            alert("Your rating is saved"); // Shows the confirmation message
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Rate Movie</h1>
+        <p>How would you rate <strong>Luca</strong>?</p>
+
+        <form class="form-group" onsubmit="saveRating(event)">
+            <label for="rating">Select Rating (1-10):</label>
+            <select id="rating" name="rating" required>
+                <option value="">Select</option>
+                <option value="1">1 - Poor</option>
+                <option value="2">2 - Fair</option>
+                <option value="3">3 - Average</option>
+                <option value="4">4 - Good</option>
+                <option value="5">5 - Very Good</option>
+                <option value="6">6 - Excellent</option>
+                <option value="7">7 - Awesome</option>
+                <option value="8">8 - Fantastic</option>
+                <option value="9">9 - Exceptional</option>
+                <option value="10">10 - Perfect</option>
+            </select>
+            
+            <button type="submit" class="btn">Submit Rating</button>
+        </form>
+
+        <a href="/movie_details/1022789" class="btn">Back to Movie Details</a>
+        <a href="/home" class="btn">Home</a> <!-- Added Home button -->
+    </div>
+</body>
+</html>

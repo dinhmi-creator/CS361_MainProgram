@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 id="movie-title">Luca</h1>
+        <p><strong>Release Year:</strong> <span id="movie-year">2021</span></p>
+        <p><strong>Rating:</strong> <span id="movie-rating">8 / 10</span></p>
+        <p><strong>Description:</strong> <span id="movie-description">A young boy experiences an unforgettable summer filled with gelato, pasta, and endless scooter rides in the seaside town on the Italian Riviera.</span></p>
+
+        <form action="{{ url_for('rate_movie') }}" method="get">
+            <button type="submit" class="btn">Rate Movie</button>
+        </form>
+        <form action="{{ url_for('save_to_favorites') }}" method="post">
+            <input type="hidden" name="movie_title" id="movie-title-hidden" value="Luca">
+            <button type="submit" class="btn">Add to Favorites</button>
+        </form>
+        <p><a href="{{ url_for('search_results') }}">Back to Search Results</a></p>
+    </div>
+</body>
+</html>

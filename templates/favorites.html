@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Favorites</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Favorite Movies</h1>
+        {% for favorite in favorites %}
+        <div class="movie-card">
+            <h3>{{ favorite.title }} ({{ favorite.year }})</h3>
+            <form action="{{ url_for('remove_favorite') }}" method="post">
+                <input type="hidden" name="movie_title" value="{{ favorite.title }}">
+                <button type="submit" class="btn">Remove from Favorites</button>
+            </form>
+        </div>
+        {% endfor %}
+        <p><a href="/">Go back to Home</a></p>
+    </div>
+</body>
+</html>
